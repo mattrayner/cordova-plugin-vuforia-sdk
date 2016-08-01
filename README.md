@@ -1,0 +1,1 @@
+# Cordova Vuforia SDK Plugin
