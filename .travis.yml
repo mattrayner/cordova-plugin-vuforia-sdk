@@ -1,3 +1,11 @@
 language: node_js
 node_js:
 - '4.4'
+deploy:
+  provider: npm
+  email: mattrayner1@gmail.com
+  api_key:
+    secure: HaVfMDZLHmceb2RIGTvLc9eYRM653kQqIiqmiTUHKexpAzH6ywqjLCpUpc5Nxfoesh2jlKFBJUJOhCeJSOZsB/FuDbvIWiqnTEzysf3Cj8SSfr61KPiRkkbGBiQbnGIld5eUfI9KtWNhggXR13tN7uwixRbw92Gd4pXLDOt8X+JhmuSQwXjpO3Dkl0bAReMYSBJbdDTJNoMNMEIhp2Eh8Vt27jhmadVy/IIu0cYhgjogCT+3n0tCII85cS9HnAQWZca7sUbQ+qiM4z6F7HWHphU0I84z4gjTzBvO6VXwTgzg7beJ2tU6HFRczLNLLfZtu1NgMQoSfANkBwVgIJE13vJd1lLBLvcI+TbpKxXaI3g0vwNPNZePNJ1SIBTT9juXkKjG6Lk3XmNnsieiCgoaSq96BOaMAV2fosLQdrluH61C5lXGUOcP8UOc164d1MrHsngJduU6B0whsSrtOmbRlYXiz5u4bDzfqPXVkH13G4Gy0Hs2tACQ9UoieroarW6G/tG3/30mAlFSp1qgRf0yjHFyGwVNk7NNo6wlP4gy4XH3H9xbXZMQ2gRCo1+749gtLZvzkRgFIEV9tgx9At6G4t3Z2bFhQbFgLS+QAbIqoe/AiXrFF1KpOjzvwuI2Unp5p4gBC2r943jA8LvlkFeKX3qDxcQdMfUddUIrpp0OMLw=
+  on:
+    tags: true
+    repo: mattrayner/cordova-plugin-vuforia-sdk
