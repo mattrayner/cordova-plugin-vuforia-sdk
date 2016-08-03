@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-vuforia-sdk",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A Cordova wrapper for the Vuforia SDK",
   "repository": {
     "type": "git",
