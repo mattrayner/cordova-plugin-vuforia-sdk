@@ -24,8 +24,8 @@
     <!-- android -->
     <platform name="android">
         <!-- Libraries -->
-        <source-file src="src/vuforia/jniLibs/armeabi/libVuforia.so" target-dir="libs/armeabi-v7a" />
-        <source-file src="src/vuforia/Vuforia.jar" target-dir="libs" />
+        <source-file src="src/vuforia/android/jniLibs/armeabi/libVuforia.so" target-dir="libs/armeabi-v7a" />
+        <source-file src="src/vuforia/android/Vuforia.jar" target-dir="libs" />
 
         <!-- Add our permissions to the Android Manifest -->
         <config-file target="AndroidManifest.xml" parent="/*">
@@ -44,9 +44,6 @@
 
     <!-- ios -->
     <platform name="ios">
-        <hook type="after_plugin_install" src="hooks/AfterPluginInstall.js" />
-        <hook type="before_plugin_uninstall" src="hooks/BeforePluginUninstall.js" />
-
         <framework src="AVFoundation.framework" weak="true" />
         <framework src="CoreGraphics.framework" weak="true" />
         <framework src="CoreMedia.framework" weak="true" />
@@ -59,6 +56,6 @@
         <framework src="SystemConfiguration.framework" weak="true" />
         <framework src="UIKit.framework" weak="true" />
 
-        <source-file src="src/vuforia/lib/arm/libVuforia.a" target-dir="libs" framework="true" />
+        <framework src="src/vuforia/ios/Vuforia.framework" custom="true" />
     </platform>
 </plugin>
