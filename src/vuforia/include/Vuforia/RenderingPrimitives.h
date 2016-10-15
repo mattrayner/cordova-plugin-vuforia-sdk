@@ -53,7 +53,30 @@ public:
 
     /// Returns the projection matrix to use for the given view and the specified coordinate system
     virtual Matrix34F getProjectionMatrix(
-        VIEW viewID, COORDINATE_SYSTEM_TYPE csType) const;
+        VIEW viewID, COORDINATE_SYSTEM_TYPE csType, bool adjustForViewportCentreToEyeAxis = true) const;
+
+    /// Returns the Field-of-View of the viewports managed by this RenderingPrimitives object
+    /* The effective FOV is computed based on screen size and viewer maximum FOV,
+     * so will vary according to the host device and viewer.
+     * This is only meaningful for the LEFT and RIGHT views, and only when used with a ViewerProfile
+     * The components of the returned vector representFOV half-angles measured from the eye axis in the order:
+     * {left, right, bottom, top}
+     * These values are measured in radians
+     */
+    virtual const Vec4F getEffectiveFov(VIEW viewID) const;
+    
+    /// Returns the skew adjustments for a viewer that need to be applied to the projection matrix
+    /// for a given co-ordinate system
+    /*
+     * Returns the offset of the eye axis relative to the centre of the viewport
+     * This is normalised to the extents of the viewport, ie -1 to +1
+     *
+     * The values returned are used to modify the left/right eye projection matrices to ensure
+     * the eye axis is in the centre of the viewport. For the videoBackgroundProjectionMatrix these 
+     * values replace elements 3 and 7. For the camera projection matrices you replace
+     * elements 2 and 6 of the matrix with these values.
+     */
+    virtual const Vec2F getViewportCentreToEyeAxis(VIEW viewID, COORDINATE_SYSTEM_TYPE csType) const;
 
     /// Returns an adjustment matrix needed to correct for the different position of display relative to the eye
     /**
@@ -63,9 +86,12 @@ public:
      */
     virtual Matrix34F getEyeDisplayAdjustmentMatrix(VIEW viewID) const;
 
+    /// Returns the video background texture size that has been used to calculate the mesh
+    virtual const Vec2I getVideoBackgroundTextureSize() const;
+
     /// Returns the projection matrix to use when projecting the video background
     virtual Matrix34F getVideoBackgroundProjectionMatrix(
-        VIEW viewID, COORDINATE_SYSTEM_TYPE csType) const;
+        VIEW viewID, COORDINATE_SYSTEM_TYPE csType, bool adjustForViewportCentreToEyeAxis = true) const;
 
     /// Returns a simple mesh suitable for rendering a video background texture
     virtual const Mesh& getVideoBackgroundMesh(VIEW viewID) const;
@@ -78,7 +104,6 @@ public:
 
     /// Returns a barrel distortion mesh for the given view
     virtual const Mesh& getDistortionTextureMesh(VIEW viewID) const;
-
 protected:
     RenderingPrimitives();
     class Impl;

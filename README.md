@@ -30,7 +30,7 @@ Cordova-Plugin-Vuforia-SDK is licensed under the [MIT License][info-license].
 [info-license]: LICENSE
 
 [shield-npm]: https://img.shields.io/npm/v/cordova-plugin-vuforia-sdk.svg
-[shield-vuforia]: https://img.shields.io/badge/Vuforia-v5.5.9-5bb73b.svg
+[shield-vuforia]: https://img.shields.io/badge/Vuforia-v6.0.117-5bb73b.svg
 [shield-travis]: https://img.shields.io/travis/mattrayner/cordova-plugin-vuforia-sdk.svg
 [shield-license]: https://img.shields.io/badge/license-MIT-blue.svg
 
