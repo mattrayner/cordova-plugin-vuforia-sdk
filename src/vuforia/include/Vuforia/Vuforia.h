@@ -30,9 +30,9 @@ class VideoSource;
  *  Use when calling init()
  */
 enum INIT_FLAGS {
-    GL_11 = 1,          ///< Deprecated: OpenGL ES 1.1 rendering; not supported.
-    GL_20 = 2,          ///< Enables OpenGL ES 2.0 rendering
-    METAL = 4,          ///< Enables Metal rendering, available on Apple platforms
+    GL_20 = 1,          ///< Enables OpenGL ES 2.0 rendering
+    METAL = 2,          ///< Enables Metal rendering, available on Apple platforms
+    DX_11 = 4,          ///< Enables DirectX 11 rendering, available on UWP platforms
 };
 
 /// Return codes for init() function
@@ -182,6 +182,9 @@ void VUFORIA_API onSurfaceCreated();
 
 /// Executes AR-specific tasks upon the onSurfaceChanged render surface event
 void VUFORIA_API onSurfaceChanged(int width, int height);
+
+/// Returns the version of the Vuforia SDK
+VUFORIA_API const char* getLibraryVersion();
 
 } // namespace Vuforia
 

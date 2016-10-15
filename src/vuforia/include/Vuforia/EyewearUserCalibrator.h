@@ -130,7 +130,7 @@ public:
      *
      * \return The aspect ratio for calibration shapes
      **/
-    virtual float getDrawingAspectRatio(int surfaceWidth, int surfaceHeight) const = 0;
+    virtual float getDrawingAspectRatio(size_t surfaceWidth, size_t surfaceHeight) const = 0;
 
 
     /**

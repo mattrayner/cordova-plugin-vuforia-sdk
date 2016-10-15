@@ -107,10 +107,15 @@ public:
     */
     virtual void begin(State state, const RenderData* renderData = 0) = 0;
 
-    /// Draws the video background
+    /// Draws the video background (DEPRECATED)
     /**
     *  This should only be called between a begin() and end() calls.
     *  Must only be called from the render thread.
+    *  DEPRECATED: this method is deprecated. 
+    *  To render the video background in AR, you should use the  
+    *  rendering primitives API and the updateVideoBackground method. 
+    *  The rendering primitives API will give you access to a video mesh 
+    *  and a video projection matrix for doing the video rendering.
     */
     virtual bool drawVideoBackground() = 0;
 
@@ -145,6 +150,9 @@ public:
     virtual const VideoBackgroundConfig& getVideoBackgroundConfig() const = 0;
 
     /// Returns the texture info associated with the current video background
+    /**
+     * Note: The result is only valid after a call to drawVideoBackground or updateVideoBackgroundTexture.
+     */
     virtual const VideoBackgroundTextureInfo& 
                                       getVideoBackgroundTextureInfo() = 0;
 
